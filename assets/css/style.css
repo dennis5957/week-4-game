@@ -1,0 +1,36 @@
+.container-fluid {
+    min-height: 100vh;
+    background:url("../images/crystal_background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.rule {
+    text-align: left;
+    font-size: 1.3rem;
+    font-variant: small-caps;
+    font-weight: 200;
+}
+
+.instructions {
+    background-color: rgba(204, 168, 214, 0.404)!important;
+    border: 3px solid black;
+}
+
+.gem-button {
+    background-color: transparent;
+}
+
+.gem {
+    max-height: 100px;
+}
+
+.container-gem {
+    right: 50%;
+    left: 50%;
+}
+
+#game-title-header {
+    text-align: center;
+}
