@@ -128,7 +128,15 @@
                 checkScore();
             }
 
+            //never allow the crystals to be the same
+            //create a place to store what the crystal values are
+            //each time we create a new value for a crystal, we look to see if it is already in that place where we stored our crystal values
+            // var picked = [8, 7, 4];
+            //lastone = 8 //is it already in the picked array?
+            //then make another random number and try again// is it already in the picked array 9 // no then use it
+
             function setupNumbers() {
+                pickedNumbers = [];
                 gemOneValue = random(1, 12);
                 gemTwoValue = random(1, 12);
                 gemThreeValue = random(1, 12);
@@ -142,10 +150,23 @@
                 $("#target").text(target);
             }
 
-            function random(from, to) {
-                return Math.floor(Math.random() * to) + from;
-                // return Math.floor(Math.random() * (max - min + 1)) + min;
+            function random(min, max){
+                var num = Math.floor(Math.random() * (max - min + 1)) + min;
+                var valid = validateNumber(num);
+                if(valid) {
+                    return num;
+                } else {
+                     return random(min, max);
+                }
+            }
 
+            function validateNumber(num){
+                if(pickedNumbers.includes(num)) {
+                   return false
+                } else {
+                    pickedNumbers.push(num);
+                    return true
+                }
             }
 
             function checkScore() {
